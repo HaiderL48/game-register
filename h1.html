@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('futuristic-fantasy-night-landscape-with-light-reflection-water-neon-space-galaxy-portal-3d-illustration.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; 
+        }
+        .navbar {
+
+            margin:10px;
+            position: fixed;
+            width: 97%;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            background-color:rgb(0, 0, 0,0.2);
+            color: white;
+            padding: 10px;
+        }
+        .nav-list {
+            justify-content:stretch;
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-list li {
+            
+            padding: 5px 15px;
+        }
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color .3s;
+        }
+        .nav-list li a:hover{
+            color: lightblue; 
+        }
+        .logo {
+            font-size: 24px;
+        }
+        .menu-icon {
+            display: none;
+        }
+        li{
+            list-style-type: none;
+        }
+        a{
+            font-size: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+        .con{
+            
+            position: absolute;
+            top: 48px;
+            height: 100%;
+            width: 100%;
+            background-color:#5a2525;
+            color: white;
+        }
+        footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background-color:rgb(0, 0, 0,0.2);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+        @media (max-width: 991px){
+            .logo{
+                position: relative;
+                left: 600px;
+            }
+            
+            .nav-list {
+                background-color: rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(10px);
+                border-radius: 20px;
+                position: relative;
+                list-style-type: none;
+                display: block;
+                position: absolute;
+                left: -100%;
+                top: 49px;
+                flex-direction: column; 
+                width: 50%;
+                height: 100vh;
+                justify-content: stretch;
+                align-items: center;
+                transition: 0.3s ;
+            }
+            .nav-list.active {
+                left: 0;
+            }
+            .menu-icon {
+                width: 20px;
+                display: block;
+                position: absolute;
+                right: 0px;
+                left: 10px;
+                top: 10px;
+                cursor:crosshair;
+            }
+            .nav-list li {
+                
+                margin: 20px 0;
+            }
+            .user{
+                position: absolute;
+                top: 10px;
+            }
+            
+        }
+        .im{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    .im img {
+       position: relative;
+       top: 80px;
+    display: block;
+    margin: 0 auto;
+    
+}
+
+</style>
+<script>
+function toggleMenu() {
+    const navList = document.querySelector('.nav-list');
+    navList.classList.toggle('active');
+}
+</script>
+
+<body>
+
+    <div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;
+        </div>
+        <div class="logo"><a href="index.php">GameZone</a></div>
+        <ul class="nav-list" >
+            <li><a href="games.php">Games</a></li>
+            <li><a href="#">Tournament</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">About Us</a></li>
+            <?php if(isset($_SESSION['userId'])){?><li><a href="wait.php">Logout</a></li>
+                <div class="user"><li><a href=""><?=$_SESSION['userId'];?></a></li></div>
+            <?php }else{?>
+            <li><a href="login.php">Login In</a></li>
+            <?php }?>
+            <li>
+                <div class="username"><a href=""><?php 
+                // echo $_SESSION['userId'];   
+            ?></a></div>
+            
+            </li>
+        </ul>
+            </div>
+          
+           <footer>
+    <h1>haider
+        
+    </h1>
+
+</footer>
+</body>
+</html>

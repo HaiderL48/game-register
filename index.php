@@ -1,0 +1,610 @@
+<?php
+    require("connection.php");
+
+    session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<style>
+	html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('webpics/back1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+.navbar {
+    z-index: 2;
+    margin:10px;
+    position: fixed;
+    width: 97%;
+    border-radius: 20px;
+    backdrop-filter:blur(20px);
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(0, 0, 0,0.2);
+    color: white;
+    padding: 10px;
+}
+.nav-list {
+    justify-content:stretch;
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.nav-list li {
+    
+    padding: 5px 15px;
+}
+.nav-list li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color .3s;
+}
+.nav-list li a:hover{
+    color: lightblue; 
+}
+.logo {
+    font-size: 24px;
+}
+.menu-icon {
+    display: none;
+}
+li{
+    list-style-type: none;
+}
+a{
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+.con{
+    
+    position: absolute;
+    top: 48px;
+    height: 100%;
+    width: 100%;
+    background-color:#5a2525;
+    color: white;
+}
+.imge {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:80px 0;
+}
+.imge img{
+    height:550px;
+    width:1200px;
+    border-radius:10px;
+}
+.cont{
+    display:flex;
+    flex-direction:column;
+    margin:400px 0;
+}
+footer {
+width: 100%;
+backdrop-filter: blur(10px);
+background-color:rgb(0, 0, 0,0.2);
+color: white;
+text-align: center;
+}
+
+ 
+
+        .slider{
+            overflow:hidden;
+            margin:80px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            
+        }
+
+        .slide{
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            min-width: 100%;
+            box-sizing: border-box;
+            
+        }
+        
+        .slide img{
+            border-radius:20px;
+            margin:5px;
+            width: 100%;
+            height: 700px;
+            
+        }
+        .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+a{
+    text-decoration:none;
+    color:white;
+}
+.categories {
+    display:flex;
+    flex-wrap:wrap;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px; */
+}
+.container{
+    width:100%;
+}
+.category {
+    
+    border:2px white solid;
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    backdrop-filter:blur(20px);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.category img {
+    width: 100%;
+    height: auto;
+    border-radius:20px;
+    height:200px;
+}
+
+.category h3 {
+    margin-top: 10px;
+}
+
+.category p {
+    color: #666;
+}
+
+.category span {
+    font-weight: bold;
+    color: #333;
+}
+
+.category button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+} 
+@media (max-width: 991px){
+    .logo{
+        position: relative;
+        left: 600px;
+    }
+    .nav-list {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        position: relative;
+        list-style-type: none;
+        display: block;
+        position: absolute;
+        left: -100%;
+        top: 49px;
+        flex-direction: column; 
+        width: 50%;
+        height: 100vh;
+        justify-content: stretch;
+        align-items: center;
+        transition: 0.3s ;
+    }
+    .nav-list.active {
+        left: 0;
+    }
+    .menu-icon {
+        width: 20px;
+        display: block;
+        position: absolute;
+        right: 0px;
+        left: 10px;
+        top: 10px;
+        cursor:crosshair;
+    }
+    .nav-list li {
+        
+        margin: 20px 0;
+    }
+    .user{
+        position: absolute;
+        top: 10px;
+    }
+    .slider{
+            overflow:hidden;
+            margin:80px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+
+        }
+
+        .slide{
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            min-width: 100%;
+            box-sizing: border-box;
+            
+        }
+        
+        .slide img{
+            border-radius:20px;
+            margin:5px;
+            width: 100%;
+            height: 400px;
+            
+        }
+        .categories {
+            display:flex;
+    flex-wrap:wrap;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px; */
+}
+
+.category {
+    width:300px;
+    margin:5px;
+    border:2px white solid;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    backdrop-filter:blur(20px);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.category img {
+    width: 100%;
+    height: auto;
+    border-radius:20px;
+}
+}
+@media (max-width: 768px){
+    .logo{
+        position: relative;
+        left: 600px;
+    }
+    .nav-list {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        position: relative;
+        list-style-type: none;
+        display: block;
+        position: absolute;
+        left: -100%;
+        top: 49px;
+        flex-direction: column; 
+        width: 50%;
+        height: 100vh;
+        justify-content: stretch;
+        align-items: center;
+        transition: 0.3s ;
+    }
+    .nav-list.active {
+        left: 0;
+    }
+    .menu-icon {
+        width: 20px;
+        display: block;
+        position: absolute;
+        right: 0px;
+        left: 10px;
+        top: 10px;
+        cursor:crosshair;
+    }
+    .nav-list li {
+        
+        margin: 20px 0;
+    }
+    .user{
+        position: absolute;
+        top: 10px;
+    }
+    
+    .slider{
+
+            overflow:hidden;
+            margin:80px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+
+        }
+
+        .slide{
+            width:200px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            box-sizing: border-box;
+            
+        }
+        
+        .slide img{
+            border-radius:20px;
+            margin:5px;
+            width: 100%;
+            height: 400px;
+            
+        }
+        
+        .categories {;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    
+}
+
+.category {
+    width:140px;
+    border:2px white solid;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    backdrop-filter:blur(20px);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.category img {
+    width: 100%;
+    height: 130px;
+    border-radius:20px;
+}
+@media(max-width:425px){
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('webpics/back1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    
+}
+    .category {
+    width:100px;
+    border:2px white solid;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    backdrop-filter:blur(20px);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.category img {
+    width: 100%;
+    height: 100px;
+    border-radius:20px;
+}
+.slider-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.slider{
+            overflow:hidden;
+            margin:80px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+
+        }
+
+        .slide{
+            width:200px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            box-sizing: border-box;
+            
+        }
+        
+        .slide img{
+            overflow:hidden;
+            border-radius:20px;
+            margin:5px;
+            width: 400px;
+            height: 250px;
+            
+        }
+        .categories {;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    
+}
+}
+@media(max-width:320px){
+    .slide img{
+            overflow:hidden;
+            border-radius:20px;
+            margin:5px;
+            width: 800px;
+            height: 180px;
+            
+        }
+    .sider-container{
+        width:100%;
+    }
+}
+}
+.im{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.im img {
+position: relative;
+top: 80px;
+display: block;
+margin: 0 auto;
+
+}
+video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        /* Add more styles as needed for your content */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            text-align: center;
+            color: #fff;
+            font-size: 2em;
+        }
+</style>
+
+<body>
+<div class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;
+        </div>
+        <div class="logo"><a href="index.php">GameZone</a></div>
+        <ul class="nav-list" >
+            <li><a href="games.php">Games</a></li>
+            <li><a href="usertour.php">Tournament</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <?php if(isset($_SESSION['userid'])){?><li><a href="logout.php">Logout</a></li>
+                <div class="user"><li><a href=""><?=$_SESSION['userid'];?></a></li></div>
+            <?php }else{?>
+            <li><a href="loginpage.php">Login In</a></li>
+            <?php }?>
+            <li>
+                <div class="username"><a href=""><?php 
+                // echo $_SESSION['userId'];   
+            ?></a></div>
+            
+            </li>
+        </ul>
+            </div>
+            <div class="slider-container">
+    <div class="slider">
+        <div class="slide" ><img src="img/bgmi1.jpg" alt="ad1" ></div>
+        <div class="slide"><img src="img/codm2.jpg" alt="ad2"></div>
+        <div class="slide"><img src="img/cr1.jpg" alt="ad3"></div>
+        <div class="slide"><img src="img/coc6.jpg" alt="ad3"></div>
+        <div class="slide"><img src="img/coc7.jpg" alt="ad3"></div>
+        <div class="slide"><img src="img/ff1.jpg" alt="ad3"></div>
+        <div class="slide"><img src="img/bs1.jpg" alt="ad3"></div>
+    </div>
+</div>
+
+<script>
+    const slider = document.querySelector('.slider');
+    let isTransitioning = false;
+
+    function nextSlide(){
+        if(!isTransitioning){
+            isTransitioning = true;
+            setTimeout(() => {
+                const firstSlide = slider.children[0];
+                slider.style.transition = 'none';
+                slider.style.transform = 'translatex(0)';
+                slider.appendChild(firstSlide);
+                slider.style.transition = 'transform 0.3s ease-in-out';
+                isTransitioning = false;
+                
+            }, 500);
+        }
+    }
+    setInterval(nextSlide,2000);
+</script>
+
+<div class="container">
+    <h1>Popular Tournaments</h1>
+        <div class="categories">
+            <?php
+            include 'connection.php';
+            $sql = "SELECT * FROM tournaments";
+            $result = mysqli_query($con, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?><div class="category" onclick="location.href='tdetails.php?id=<?php echo $row['id'];?>'"><?php
+                echo '<img src="img/' . $row['imge'] . '" alt="" >';
+                echo '<h3>' . $row['name'] . '</h3>';
+                echo '<h3>' . $row['type'] . '</h3>';
+                
+                echo '</div>';
+            }
+            ?>
+        </div>
+    </div>  
+</body>
+
+<script>
+	function toggleMenu() {
+    const navList = document.querySelector('.nav-list');
+    navList.classList.toggle('active');
+}
+</script>
+
+</html>
